@@ -1,0 +1,132 @@
+{
+  "consumer": {
+    "name": "Todo Client"
+  },
+  "provider": {
+    "name": "Todo Api"
+  },
+  "interactions": [
+    {
+      "description": "a request for todos",
+      "providerState": "there are 2 todos",
+      "request": {
+        "method": "GET",
+        "path": "/api/todo",
+        "headers": {
+          "Accept": "application/json; charset=utf-8"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "todos": [
+            {
+              "_id": "jfkanvsjksd1341kjfvs",
+              "text": "Buy milk",
+              "status": false
+            },
+            {
+              "_id": "vmcjxkbdnreu343321",
+              "text": "Buy fruits",
+              "status": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "description": "create item request",
+      "providerState": "a todo item created",
+      "request": {
+        "method": "POST",
+        "path": "/api/todo",
+        "headers": {
+          "Accept": "application/json; charset=utf-8"
+        },
+        "body": {
+          "_id": "1vcnjxkndsjkf42gr0",
+          "task": "Buy milk",
+          "status": false
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": true
+        }
+      }
+    },
+    {
+      "description": "a request to complete a todo item",
+      "providerState": "Complete a todo item",
+      "request": {
+        "method": "PUT",
+        "path": "/api/completeTodo/mfdkls27r8fvbhjs",
+        "headers": {
+          "Accept": "application/json; charset=utf-8"
+        },
+        "body": {
+          "status": true
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": true
+        }
+      }
+    },
+    {
+      "description": "a request to undo a todo item",
+      "providerState": "Undo a todo item",
+      "request": {
+        "method": "PUT",
+        "path": "/api/undoTodo/mfdkls27r8fvbhjs",
+        "headers": {
+          "Accept": "application/json; charset=utf-8"
+        },
+        "body": {
+          "status": false
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": true
+        }
+      }
+    },
+    {
+      "description": "a request to delete a todo item",
+      "providerState": "Delete a todo item",
+      "request": {
+        "method": "DELETE",
+        "path": "/api/deleteTodo/mfdkls27r8fvbhjs",
+        "headers": {
+          "Accept": "application/json; charset=utf-8"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "success": true
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

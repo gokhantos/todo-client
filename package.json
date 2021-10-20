@@ -1,21 +1,28 @@
 {
   "name": "todo-client",
+  "testEnvironment": "node",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@pact-foundation/pact": "^9.16.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.23.0",
+    "chai": "^4.3.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "selenium-webdriver": "^4.0.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cucumber": "cucumber-js --require-module @babel/register",
+    "pact:publish": "pact-broker publish pacts/ --consumer-app-version=\"$(npx @pact-foundation/absolute-version)\" --tag-with-git-branch --broker-base-url=https://gokhantosun.pactflow.io  --broker-token=4bo_wjLIsBRkTSJ4YqiBlw"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +41,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/register": "^7.15.3",
+    "cucumber": "^7.0.0-rc.0",
+    "jest": "^26.6.0"
   }
 }

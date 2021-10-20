@@ -1,0 +1,276 @@
+I, [2021-10-20T11:51:53.167773 #24758]  INFO -- : Registered expected interaction GET /api/todo
+I, [2021-10-20T11:51:53.170198 #24758]  INFO -- : Received request GET /api/todo
+D, [2021-10-20T11:51:53.170415 #24758] DEBUG -- : {
+  "description": "a request for todos",
+  "providerState": "there are 2 todos",
+  "request": {
+    "method": "GET",
+    "path": "/api/todo",
+    "headers": {
+      "Accept": "application/json; charset=utf-8"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+    },
+    "body": {
+      "todos": [
+        {
+          "_id": "jfkanvsjksd1341kjfvs",
+          "text": "Buy milk",
+          "status": false
+        },
+        {
+          "_id": "vmcjxkbdnreu343321",
+          "text": "Buy fruits",
+          "status": false
+        }
+      ]
+    }
+  },
+  "metadata": null
+}
+D, [2021-10-20T11:51:53.174386 #24758] DEBUG -- : {
+  "path": "/api/todo",
+  "query": "",
+  "method": "get",
+  "headers": {
+    "Accept": "application/json; charset=utf-8",
+    "User-Agent": "axios/0.23.0",
+    "Host": "localhost:8080",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2021-10-20T11:51:53.175437 #24758]  INFO -- : Found matching response for GET /api/todo
+D, [2021-10-20T11:51:53.175738 #24758] DEBUG -- : {
+  "status": 200,
+  "headers": {
+  },
+  "body": {
+    "todos": [
+      {
+        "_id": "jfkanvsjksd1341kjfvs",
+        "text": "Buy milk",
+        "status": false
+      },
+      {
+        "_id": "vmcjxkbdnreu343321",
+        "text": "Buy fruits",
+        "status": false
+      }
+    ]
+  }
+}
+I, [2021-10-20T11:51:53.188388 #24758]  INFO -- : Verifying - interactions matched
+I, [2021-10-20T11:51:53.196394 #24758]  INFO -- : Cleared interactions
+I, [2021-10-20T11:51:53.223387 #24758]  INFO -- : Registered expected interaction POST /api/todo
+D, [2021-10-20T11:51:53.226189 #24758] DEBUG -- : {
+  "description": "create item request",
+  "providerState": "a todo item created",
+  "request": {
+    "method": "POST",
+    "path": "/api/todo",
+    "headers": {
+      "Accept": "application/json; charset=utf-8"
+    },
+    "body": {
+      "_id": "1vcnjxkndsjkf42gr0",
+      "task": "Buy milk",
+      "status": false
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+    },
+    "body": {
+      "success": true
+    }
+  },
+  "metadata": null
+}
+I, [2021-10-20T11:51:53.225881 #24758]  INFO -- : Received request POST /api/todo
+D, [2021-10-20T11:51:53.227067 #24758] DEBUG -- : {
+  "path": "/api/todo",
+  "query": "",
+  "method": "post",
+  "body": {
+    "_id": "1vcnjxkndsjkf42gr0",
+    "task": "Buy milk",
+    "status": false
+  },
+  "headers": {
+    "Content-Length": "61",
+    "Content-Type": "application/json",
+    "Accept": "application/json; charset=utf-8",
+    "User-Agent": "axios/0.23.0",
+    "Host": "localhost:8080",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2021-10-20T11:51:53.229998 #24758]  INFO -- : Found matching response for POST /api/todo
+D, [2021-10-20T11:51:53.230335 #24758] DEBUG -- : {
+  "status": 200,
+  "headers": {
+  },
+  "body": {
+    "success": true
+  }
+}
+I, [2021-10-20T11:51:53.237627 #24758]  INFO -- : Verifying - interactions matched
+I, [2021-10-20T11:51:53.247401 #24758]  INFO -- : Cleared interactions
+I, [2021-10-20T11:51:53.257163 #24758]  INFO -- : Registered expected interaction PUT /api/completeTodo/mfdkls27r8fvbhjs
+D, [2021-10-20T11:51:53.257347 #24758] DEBUG -- : {
+  "description": "a request to complete a todo item",
+  "providerState": "Complete a todo item",
+  "request": {
+    "method": "PUT",
+    "path": "/api/completeTodo/mfdkls27r8fvbhjs",
+    "headers": {
+      "Accept": "application/json; charset=utf-8"
+    },
+    "body": {
+      "status": true
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+    },
+    "body": {
+      "success": true
+    }
+  },
+  "metadata": null
+}
+I, [2021-10-20T11:51:53.262305 #24758]  INFO -- : Received request PUT /api/completeTodo/mfdkls27r8fvbhjs
+D, [2021-10-20T11:51:53.262519 #24758] DEBUG -- : {
+  "path": "/api/completeTodo/mfdkls27r8fvbhjs",
+  "query": "",
+  "method": "put",
+  "body": {
+    "status": true
+  },
+  "headers": {
+    "Content-Length": "15",
+    "Content-Type": "application/json",
+    "Accept": "application/json; charset=utf-8",
+    "User-Agent": "axios/0.23.0",
+    "Host": "localhost:8080",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2021-10-20T11:51:53.262930 #24758]  INFO -- : Found matching response for PUT /api/completeTodo/mfdkls27r8fvbhjs
+D, [2021-10-20T11:51:53.263054 #24758] DEBUG -- : {
+  "status": 200,
+  "headers": {
+  },
+  "body": {
+    "success": true
+  }
+}
+I, [2021-10-20T11:51:53.270469 #24758]  INFO -- : Verifying - interactions matched
+I, [2021-10-20T11:51:53.279548 #24758]  INFO -- : Cleared interactions
+I, [2021-10-20T11:51:53.289539 #24758]  INFO -- : Registered expected interaction PUT /api/undoTodo/mfdkls27r8fvbhjs
+D, [2021-10-20T11:51:53.289833 #24758] DEBUG -- : {
+  "description": "a request to undo a todo item",
+  "providerState": "Undo a todo item",
+  "request": {
+    "method": "PUT",
+    "path": "/api/undoTodo/mfdkls27r8fvbhjs",
+    "headers": {
+      "Accept": "application/json; charset=utf-8"
+    },
+    "body": {
+      "status": false
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+    },
+    "body": {
+      "success": true
+    }
+  },
+  "metadata": null
+}
+I, [2021-10-20T11:51:53.295271 #24758]  INFO -- : Received request PUT /api/undoTodo/mfdkls27r8fvbhjs
+D, [2021-10-20T11:51:53.295500 #24758] DEBUG -- : {
+  "path": "/api/undoTodo/mfdkls27r8fvbhjs",
+  "query": "",
+  "method": "put",
+  "body": {
+    "status": false
+  },
+  "headers": {
+    "Content-Length": "16",
+    "Content-Type": "application/json",
+    "Accept": "application/json; charset=utf-8",
+    "User-Agent": "axios/0.23.0",
+    "Host": "localhost:8080",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2021-10-20T11:51:53.295874 #24758]  INFO -- : Found matching response for PUT /api/undoTodo/mfdkls27r8fvbhjs
+D, [2021-10-20T11:51:53.295977 #24758] DEBUG -- : {
+  "status": 200,
+  "headers": {
+  },
+  "body": {
+    "success": true
+  }
+}
+I, [2021-10-20T11:51:53.304606 #24758]  INFO -- : Verifying - interactions matched
+I, [2021-10-20T11:51:53.312810 #24758]  INFO -- : Cleared interactions
+I, [2021-10-20T11:51:53.325818 #24758]  INFO -- : Registered expected interaction DELETE /api/deleteTodo/mfdkls27r8fvbhjs
+D, [2021-10-20T11:51:53.325987 #24758] DEBUG -- : {
+  "description": "a request to delete a todo item",
+  "providerState": "Delete a todo item",
+  "request": {
+    "method": "DELETE",
+    "path": "/api/deleteTodo/mfdkls27r8fvbhjs",
+    "headers": {
+      "Accept": "application/json; charset=utf-8"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+    },
+    "body": {
+      "success": true
+    }
+  },
+  "metadata": null
+}
+I, [2021-10-20T11:51:53.336930 #24758]  INFO -- : Received request DELETE /api/deleteTodo/mfdkls27r8fvbhjs
+D, [2021-10-20T11:51:53.337082 #24758] DEBUG -- : {
+  "path": "/api/deleteTodo/mfdkls27r8fvbhjs",
+  "query": "",
+  "method": "delete",
+  "headers": {
+    "Accept": "application/json; charset=utf-8",
+    "User-Agent": "axios/0.23.0",
+    "Host": "localhost:8080",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2021-10-20T11:51:53.337327 #24758]  INFO -- : Found matching response for DELETE /api/deleteTodo/mfdkls27r8fvbhjs
+D, [2021-10-20T11:51:53.337454 #24758] DEBUG -- : {
+  "status": 200,
+  "headers": {
+  },
+  "body": {
+    "success": true
+  }
+}
+I, [2021-10-20T11:51:53.345975 #24758]  INFO -- : Verifying - interactions matched
+I, [2021-10-20T11:51:53.354839 #24758]  INFO -- : Cleared interactions
+I, [2021-10-20T11:51:53.372557 #24758]  INFO -- : Writing pact for Todo Api to /Users/gokhantosun/Desktop/Projects/todo-client/pacts/todo_client-todo_api.json
