@@ -1,60 +1,48 @@
 import axios from "axios";
 
-let baseURL = "http://localhost:8080";
 
-export async function getTodos(){
+
+export async function getTodos(baseURL){
     return axios.request({
         method: "GET",
-        url: baseURL + "/api/todo",
+        url: baseURL + "/api/todos",
         headers: {
             'Accept': 'application/json; charset=utf-8',
+            'Content-type': 'application/json; charset=utf-8',
         },
     })
 }
 
-export async function addTodo(todoItem){
+export async function addTodo(baseURL, todoItem){
     return axios.request({
         method: "POST",
-        url: baseURL + "/api/todo",
+        url: baseURL + "/api/todos",
         headers: {
             'Accept': 'application/json; charset=utf-8',
+            'Content-type': 'application/json; charset=UTF-8',
         },
         data: todoItem
     })
 }
 
-export async function completeTodo(todoId){
+export async function updateTodo(baseURL, todoId){
     return axios.request({
         method: "PUT",
-        url: baseURL + `/api/completeTodo/${todoId}`,
+        url: baseURL + `/api/todos/${todoId}`,
         headers: {
             'Accept': 'application/json; charset=utf-8',
-        },
-        data:{
-            status: true
+            'Content-type': 'application/json; charset=UTF-8',
         }
     })
 }
 
-export async function undoTodo(todoId){
-    return axios.request({
-        method: "PUT",
-        url: baseURL + `/api/undoTodo/${todoId}`,
-        headers: {
-            'Accept': 'application/json; charset=utf-8',
-        },
-        data:{
-            status: false
-        }
-    })
-}
-
-export async function deleteTodo(todoId){
+export async function deleteTodo(baseURL, todoId){
     return axios.request({
         method: "DELETE",
-        url: baseURL + `/api/deleteTodo/${todoId}`,
+        url: baseURL + `/api/todos/${todoId}`,
         headers: {
             'Accept': 'application/json; charset=utf-8',
+            'Content-type': 'application/json; charset=utf-8',
         }
     })
 }

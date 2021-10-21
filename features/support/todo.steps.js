@@ -119,6 +119,10 @@ When("I click the delete button of 1st todo", async function(){
 })
 
 Then("The 1st todo {string} should be deleted", async function(mystr){
-    let todoItems = await driver.findElement(By.id("todo-list"));
-    return assert.notEqual(todoItems, mystr);
+    try{
+        let todoItems = await driver.findElement(By.id("todo-list"));
+        return assert.equal(todoItems, mystr);
+    }catch(err){
+        return webdriver.error.NoSuchElementError;
+    }
 })
