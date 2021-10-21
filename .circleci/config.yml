@@ -22,6 +22,11 @@ jobs:
       - run:
           name: install packages
           command: npm ci
+      - run:
+          name: Setup ENV variables
+          command: |
+            echo "export PACT_BROKER_TOKEN=$PACT_BROKER_TOKEN" >> $BASH_ENV
+            echo "export PACT_BROKER_URL=$PACT_BROKER_URL" >> $BASH_ENV
       - save_cache:
           key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
           paths:
@@ -29,6 +34,9 @@ jobs:
       - run:
           name: Run Tests
           command: npm run test
+      - run:
+          name: Publish contract to Pactflow
+          command: npm run publish:pact
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
