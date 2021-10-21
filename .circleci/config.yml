@@ -21,7 +21,7 @@ jobs:
             - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
       - run:
           name: install packages
-          command: npm ci
+          command: npm install
       - run:
           name: Setup ENV variables
           command: |
