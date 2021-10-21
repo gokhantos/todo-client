@@ -36,7 +36,7 @@ jobs:
           command: npm run test
       - run:
           name: Publish contract to Pactflow
-          command: npm run publish:pact
+          command: npm run pact:publish
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
