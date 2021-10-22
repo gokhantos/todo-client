@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Getting Started with Test Driven Development by creating a React Redux Todo Client
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## TDD
 
-In the project directory, you can run:
+### Acceptance tests
 
-### `npm start`
+Acceptance tests are made by using cucumber and selenium libraries.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`npm run cucumber`can run acceptance tests.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+    Scenario: Todo App Home Page
+        Given User enter the url of application
+        Then User check for the title of home page
 
-### `npm test`
+    Scenario: Create Todo
+        Given There is a text-box to write todo
+        When User writes "Buy milk" on the textbox
+        And User clicks the add button
+        Then the text of the 1st todo should be "Buy milk"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    Scenario: Mark Todo Done
+        Given There are already 1 todo as undone
+        When User marks the 1st todo as done
+        Then The 1st todo should be marked as done
 
-### `npm run build`
+    Scenario: Mark Todo Undone
+        Given There are already 1 todo as done
+        When I mark the the 1st todo as undone
+        Then The 1st todo should be marked as undone
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    Scenario: Delete Todo
+        Given There are already 1 todo
+        When I click the delete button of 1st todo
+        Then The 1st todo "Buy milk" should be deleted
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Unit and Integration tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Integration tests are made by mocking axios library on Actions.test.js file.
 
-### `npm run eject`
+Unit tests are made by mocking react redux store and rendering the app component on App.test.js file.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Consumer Driven Contracts
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Consumer driver contracts are written by PactFlow library on todo_cdc.test.js
+Pact tests can be run by `npm run test`
+In order to publish pacts on pactflow `npm run pact:publish`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Image of Pact](https://github.com/gokhantos/todo-client/blob/main/pactflow.png)
 
-## Learn More
+### CICD Pipeline
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This repo published to CircleCI to create a pipeline. Acceptance tests are not used because I couldn't handle the error that "selenium webdriver needs to be in $path" that's why just unit tests, integration tests and CDC tests run on this pipeline and returns PASS.
+![Image of Pipeline](https://github.com/gokhantos/todo-client/blob/main/cicd.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
